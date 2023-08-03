@@ -68,9 +68,23 @@
         <p> <?=saudacao("bom dia","Vitor")?></p>
         <p> <?=saudacao("bom dia")?></p>
 
-
-
-
-
+    <hr>
+    <h2>Indução de tipos de dados</h2>
+    <?php
+    /* tipos de dados mais comuns
+    string -> caracteres em geral
+    int -> numeros inteiros 
+    float -> numeros com casas decimais
+    array -> vetor */
+    function negativo(int $valor):string{
+        if ($valor < 0) {
+            return "é negativo";
+        } else {
+            return " não é negativo";
+        }  
+    }
+    ?>
+    <p>Numéro 10: <?=negativo(10)?></p>
+    <p>Numéro -10: <?=negativo(-10)?></p>    
 </body>
 </html>
