@@ -85,6 +85,16 @@
     }
     ?>
     <p>Numéro 10: <?=negativo(10)?></p>
-    <p>Numéro -10: <?=negativo(-10)?></p>    
+    <p>Numéro -10: <?=negativo(-10)?></p> 
+    
+    <hr>
+    <h2>funções anônima (ou closure lambda)</h2>
+    <?php
+    $formatopreco = function(float $valor){
+        $precoformatado = "R$ ".number_format($valor, 2,",",".");
+        return $precoformatado;
+    };
+    ?>
+    <p>1000 formatado fica: <?=$formatopreco(1000)?></p>
 </body>
 </html>
