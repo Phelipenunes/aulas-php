@@ -26,6 +26,16 @@
         </article>
     </section>
 
+    <hr>
+    <h2>Funções com retorno de dados </h2>
+    <?php
+    function dadoscurso(){
+        return "Técnico em informatica para internet";
+    }
+    ?>
+    <p> estamos no curso de <?=dadoscurso()?>.</p>
+    <p><?=dadoscurso()?> é ministrado no senac penha.</p>
+
 
 </body>
 </html>
