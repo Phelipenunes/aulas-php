@@ -50,6 +50,13 @@
 
     <?php ?>
     <h2>Array</h2>
+    <h3>inplode()</h3>
+    <?php
+    $frutas = ["banana","morango","uva"];
+    $textofruta = implode(" - ",$frutas);
+    ?>
+    <pre> <?=var_dump($frutas)?></pre>
+    <pre> <?=var_dump($textofruta)?></pre>
     <hr>
     <?php ?>
     <h2>Filtros</h2>
