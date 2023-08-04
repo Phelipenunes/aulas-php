@@ -57,6 +57,41 @@
     ?>
     <pre> <?=var_dump($frutas)?></pre>
     <pre> <?=var_dump($textofruta)?></pre>
+
+    <h3>extract()</h3>
+    <?php
+    $aluno = [
+        "id" => 1,
+        "nome" => "chaves do 8",
+        "idade" => 25
+    ];
+
+    extract($aluno);
+    ?>
+    <ul>
+        <li>ID: <?=$id?></li>
+        <li>Nome: <?=$nome?></li>
+        <li>Idade: <?=$idade?></li>
+    </ul>
+
+    <h3>array_sum()</h3>
+    <?php
+    $total = array_sum($valores);
+    ?>
+    <p>soma dos valores: <?=$total?></p>
+
+    <h3>array_unique()</h3>
+    <?php
+    $produtos = [
+        "TV", "Notebook", "TV",
+        "Geladeira", "Monitor", "Notebook",
+        "Teclado","Mouse"
+    ];
+
+    $produtosunicos = array_unique($produtos);
+    ?>
+    <pre> <?=var_dump($produtos)?></pre>
+    <pre> <?=var_dump($produtosunicos)?></pre>
     <hr>
     <?php ?>
     <h2>Filtros</h2>
