@@ -18,10 +18,36 @@
     ?>
     <pre> <?=var_dump($nome)?></pre>
     <pre> <?=var_dump($nomesemespaco)?></pre>
+
+    <h3>str_replace</h3>
+    <?php
+    $frasefeia = "<p>Fulano é um fdp</p>";
+    $frasebonita = str_replace (["fdp"],"xxxx",$frasefeia);
+    ?>
+    <p><?=$frasebonita?></p>
+    <p><?=$frasefeia?></p>
+
+    <h3>explode()</h3>
+    <?php
+    $linguagens = "HTML - CSS - JS - PHP";
+    $arraylinguagens = explode(" - ", $linguagens);
+    ?>
+    <pre> <?=var_dump($linguagens)?></pre>
+    <pre> <?=var_dump($arraylinguagens)?></pre>
+
     <hr>
-    
     <h2>numérica</h2>
+    <h3>min, max</h3>
+    <?php
+    $valores = [10, 5, 50, 1000, 275];
+    $valorqualquer = 1259.75;
+    ?>
+    <p>Menor valor: <?=min($valores)?></p>
+    <p>Maior valor: <?=max($valores)?></p>
+    <p>Arredondamento: <?=round($valorqualquer)?></p>
+    
     <hr>
+
     <?php ?>
     <h2>Array</h2>
     <hr>
