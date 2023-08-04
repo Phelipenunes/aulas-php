@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercício 05</title>
     <style>
-     .red{color: red;}
-     .azul{color: blue;}
+     .red{background-color: red;}
+     .green{background-color: green;}
     </style>
 </head>
 <body>
@@ -28,7 +28,7 @@
         }
     }    
     ?>
-    <p>nota do aluno : <?=nota( 2, 3, 2)?></p>
-    <p>O aluno está :  <?= situacao(2, 3, 2)?></p>
+    <p>nota do aluno : <?=nota( 8, 8, 8)?></p>
+    <p>O aluno está :  <span class="<?= situacao(8, 8,8) == "Aprovado" ? "green":"red"?>"><?=situacao(8, 8, 8)?> </span></p>
 </body>
 </html>
