@@ -19,9 +19,28 @@
             <input  required ="email" name="email" id="email">
         </p>
         <p>
+            <label for="idade">Idade:</label>
+            <input type="number" name="idade" id="number" min="12" max="200">
+
+            <div>
+                <p>Interesses</p>
+                <input type="checkbox" name="interesses[]" id="sql" value="SQL">
+                <label for="sql">SQL</label>
+
+                <input type="checkbox" name="interesses[]" id="node" value="node">
+                <label for="node">Node.js</label>
+
+                <input type="checkbox" name="interesses[]" id="ux" value="ux">
+                <label for="ux">UX</label>
+            </div>
+
+        </p>
+        <p>
             <label for="mensagem">Mensagem:</label>
             <textarea name="mensagem" id="mensagem" cols="30" rows="10"></textarea>
         </p>
+        
+        
         <button type="submit" name="enviar" id="enviar">Enviar</button>
     </form>
 </body>

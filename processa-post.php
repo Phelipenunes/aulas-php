@@ -19,13 +19,21 @@
     $nome = $_POST["nome"];
     $email = $_POST["email"];
     $mensagem = $_POST["mensagem"];
+    $interesses = $_POST["interesses"];
+    $idade = $_POST["idade"]
     ?>
 
     <h2>Dados:</h2>
     <ul>
         <li>Nome: <?=$nome?></li>
         <li>E-mail: <?=$email?></li>
+        <li>idade: <?=$idade?></li>
+        <?php if(!empty($interesses)){ ?>
+        <li>iteresses: <?=implode(", ",$interesses)?></li>
+        <?php } ?>
+        <?php if(!empty($mensagem)){ ?>
         <li>Mensagem: <?=$mensagem?></li>
+        <?php } ?>
     </ul>
     <?php
     }
