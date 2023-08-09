@@ -16,11 +16,12 @@
         <p><a href="10-formulario.html">voltar</a></p>"; 
         <?php
     } else {
-    $nome = $_POST["nome"];
-    $email = $_POST["email"];
-    $mensagem = $_POST["mensagem"];
-    $interesses = $_POST["interesses"] ??[];
-    $idade = $_POST["idade"]
+    $nome = filter_input(INPUT_POST, "nome", FILTER_SANITIZE_SPECIAL_CHARS);
+    $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
+    $mensagem = filter_input(INPUT_POST, "mensagem", FILTER_SANITIZE_SPECIAL_CHARS);
+    filter_var_array(
+    $interesses = $_POST["interesses"] ??[], FILTER_SANITIZE_SPECIAL_CHARS);
+    $idade = filter_input(INPUT_POST, "idade", FILTER_SANITIZE_NUMBER_INT);
     ?>
 
     <h2>Dados:</h2>
@@ -28,9 +29,20 @@
         <li>Nome: <?=$nome?></li>
         <li>E-mail: <?=$email?></li>
         <li>idade: <?=$idade?></li>
+
         <?php if(!empty($interesses)){ ?>
-        <li>iteresses: <?=implode(", ",$interesses)?></li>
+        <li>interesses: <?=implode(", ",$interesses)?></li>
+
+        <li>interesses: 
+            <ul>
+                <?php foreach ( $interesses as $interesses) ?>
+                <li><?=$interesses?></li>
+                <?php ?>
+            </ul>
+        </li>
+
         <?php } ?>
+
         <?php if(!empty($mensagem)){ ?>
         <li>Mensagem: <?=$mensagem?></li>
         <?php } ?>
