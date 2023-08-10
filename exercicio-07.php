@@ -65,7 +65,7 @@ if(isset($_POST["enviar"])){
         <?php
     } else {
     $nome = filter_input(INPUT_POST, "nome",FILTER_SANITIZE_SPECIAL_CHARS);
-    $preco = filter_input(INPUT_POST, 'preco',FILTER_VALIDATE_FLOAT );
+    $preco = filter_input(INPUT_POST, 'preco',FILTER_VALIDATE_FLOAT,FILTER_FLAG_ALLOW_FRACTION );
     $disponibilidade = filter_input(INPUT_POST, "disponibilidade",FILTER_SANITIZE_SPECIAL_CHARS);
     $descricao = filter_input(INPUT_POST, "descricao",FILTER_SANITIZE_SPECIAL_CHARS);
     $fabricantes = filter_input(INPUT_POST, 'fabricantes', FILTER_SANITIZE_SPECIAL_CHARS)
