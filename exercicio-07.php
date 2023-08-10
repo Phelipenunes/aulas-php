@@ -4,6 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário</title>
+    <style>
+        .preto{background-color: black;}
+        body{
+            margin-left:20%;
+            margin-right:20%;
+            margin-top: 300px;
+            background-color:lightslategray;
+        }
+        #dados{
+            background-color:aliceblue;
+            height:40% ;
+            border-radius:20px;
+            border:solid black;
+            padding: 20px ;
+            font-family:Chalkduster, fantasy;
+        }
+        #form{
+            background-color:aliceblue;
+            height:40% ;
+            border-radius:20px;
+            border:solid black;
+        }
+
+        form{
+            padding: 20px;
+            font-size: large;
+            font-family:Chalkduster, fantasy;
+        }
+        input,select,textarea{  
+            border:solid black;
+            border-radius: 5px;
+        }
+        
+        button{
+            border:solid black;
+            border-radius: 5px;
+            width: 7%; 
+            font-family:Chalkduster, fantasy ;
+            font-size: large;
+        }
+        .tamanho{
+            max-width: 35%;
+        }
+        .caixaalta{
+            text-transform: uppercase;
+        }
+    </style>
 </head>
 <body>
 
@@ -23,19 +70,19 @@ if(isset($_POST["enviar"])){
     $descricao = filter_input(INPUT_POST, "descricao",FILTER_SANITIZE_SPECIAL_CHARS);
     $fabricantes = filter_input(INPUT_POST, 'fabricantes', FILTER_SANITIZE_SPECIAL_CHARS)
     ?>
-
-    <h2>Dados:</h2>
+    <div id="dados">
+    <p class="caixaalta">Informações:</p>
     <p><?=$nome?></p>
     <p><?=$fabricantes?></p>
     <p><?=$preco?></p>
     <p><?=$disponibilidade?><p>
     <p><?=$descricao?></p>
-
+    </div>    
 
     <?php
     }}else {
     ?>
-    
+    <div id="form">
     <form action="" method="post">
         <p>
             <label for="nome">Nome:</label>
@@ -56,18 +103,19 @@ if(isset($_POST["enviar"])){
         </p>
         <p>Disponibilidade <br>
             <input type="radio" name="disponibilidade" id="sim" value="Sim">
-            <label for="sim">Sim</label>
+            <label  for="sim">Sim</label>
             <input type="radio" name="disponibilidade" id="nao" value="Não">
             <label for="nao">Não</label>
         </p>
         <p>
             <label for="descricao">Descrição:</label> <br>
-            <textarea name="descricao" id="descricao" cols="30" rows="1"></textarea>
+            <textarea class="tamanho" name="descricao" id="descricao" cols="30" rows="3"></textarea>
         </p>
         <p>
             <button type="submit"  name="enviar" id="enviar">Enviar</button>
         </p>
     </form>
+    </div>
     <?php } ?>
     
 </body>
