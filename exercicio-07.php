@@ -75,7 +75,7 @@ if(isset($_POST["enviar"])){
     <p class="caixaalta">Informações:</p>
     <p><?=$nome?></p>
     <p><?=$fabricantes?></p>
-    <p><?=$precovalidado?></p>
+    <p><?=number_format($precovalidado, 2, ",", ".")?></p>
     <p><?=$disponibilidade?><p>
     <p><?=$descricao?></p>
     </div>    
