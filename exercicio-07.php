@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário</title>
     <style>
+        /* CSS está regular, embora com alguns problemas de espaçamento */
+        
         .preto{background-color: black;}
         body{
             margin-left:20%;
@@ -60,17 +62,28 @@ $fabricantes = ["Honda" =>"Honda", "Fiat" => "Fiat", "BMW" => "BMW", "Mercedez" 
 if(isset($_POST["enviar"])){
     if( empty($_POST["nome"])||empty($_POST["preco"])){
         ?>
-        <p><b>Preencha os campos obrigatorio</b></p>";
-        <p><a href="exercicio-07.php">voltar</a></p>"; 
+        <p><b>Preencha os campos obrigatorio</b></p>"; <!-- essas aspas e ; ficaram sobrando (e aparecem) -->
+        <p><a href="exercicio-07.php">voltar</a></p>"; <!-- essas aspas e ; ficaram sobrando (e aparecem) -->
         <?php
     } else {
     $nome = filter_input(INPUT_POST, "nome",FILTER_SANITIZE_SPECIAL_CHARS);
     $preco = filter_input(INPUT_POST, 'preco',FILTER_VALIDATE_FLOAT );
+
+    /* Filtros estão corretos */
     $precovalidado = filter_var($preco,FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION );
+    
     $disponibilidade = filter_input(INPUT_POST, "disponibilidade",FILTER_SANITIZE_SPECIAL_CHARS);
     $descricao = filter_input(INPUT_POST, "descricao",FILTER_SANITIZE_SPECIAL_CHARS);
     $fabricantes = filter_input(INPUT_POST, 'fabricantes', FILTER_SANITIZE_SPECIAL_CHARS)
     ?>
+
+<!-- Essa saída ficou bem genérica, só jogou os dados de qualquer jeito... 
+Poderia pelo menos ter colocado algum texto/rótulo antes de cada variável, exemplo:
+Produto: $nome
+Descrição: $descricao
+
+Sempre tenha o cuidado de estruturar/formatar bem a saída de dados para os usuários.
+-->
     <div id="dados">
     <p class="caixaalta">Informações:</p>
     <p><?=$nome?></p>
@@ -92,6 +105,8 @@ if(isset($_POST["enviar"])){
         <p>
             <label for="fabricantes">Fabricante:</label>
             <select name="fabricantes" id="fabricantes">
+                <!-- Aqui está correto.
+            Em uma situação real, a $key seria um identificador de cada marca (vindo de um banco de dados) -->
                 <option value=""></option>
                 <?php foreach($fabricantes as $key => $marca){ ?>
                 <option value="<?=$key?>"><?=$marca?></option>
